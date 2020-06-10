@@ -1,0 +1,8 @@
+{
+    "database": "C:/projetos/firebird-api/src/database/dados.fdb",
+    "host":     "127.0.0.1",
+    "port":     "3050",
+    "role":     null,
+    "pageSize": 16384,
+    "timeout":  3000
+}
