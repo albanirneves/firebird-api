@@ -11,7 +11,9 @@ module.exports = {
             const results = await db.queryAsync(sql);
 
             db.detach();
-    
+            
+            response.header('X-Total-Count', results.length);
+            
             return response.json(results);
             
         } catch(error) {
