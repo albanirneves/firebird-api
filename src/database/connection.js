@@ -1,16 +1,22 @@
 'use strict'; 
 
-const nodeFirebird = require('node-firebird');
-const { database, host, port, role, pageSize, timeout } = require('../../config.json');
+const Firebird = require('node-firebird');
 
-async function connection({ user, password }) {
+const config = require('../config.json');
+
+const { database, host, port, role, pageSize, timeout } = config.connection;
+
+async function connection() {
     return new Promise((resolve, reject) => {
         try {
+            const user     = process.env.FIREBIRDAPI_USER;
+            const password = process.env.FIREBIRDAPI_PASSWORD;
+
             if(!user || !password) {
                 throw new Error('user and password required');
             }
 
-            nodeFirebird.attach({
+            Firebird.attach({
                 user,
                 password,
                 database,

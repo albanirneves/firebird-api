@@ -2,10 +2,10 @@
   "name": "firebird-api",
   "version": "1.0.0",
   "description": "A Firebird API Endpoint",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node src/server.js",
-    "dev": "nodemon src/server.js"
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
   },
   "keywords": [
     "firebird",
@@ -16,9 +16,10 @@
   "author": "Albanir Neves https://github.com/albanirneves",
   "license": "ISC",
   "dependencies": {
-    "node-firebird": "^0.9.2",
     "cors": "^2.8.5",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "node-firebird": "^0.9.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.3"
