@@ -2,3 +2,4 @@ node_modules
 src/database/dados.fdb
 src/config.json
 .vscode
+token
