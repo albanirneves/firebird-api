@@ -7,12 +7,9 @@ module.exports = {
         try {
             const { sql } = request.body;
 
-            const db = await connection();
-            const results = await db.queryAsync(sql);
-
-            db.detach();
+            const results = await connection.query(sql);
             
-            response.header('X-Total-Count', results.length);
+            response.header('X-Total-Count', results ? results.length : 0);
             
             return response.json(results);
             
