@@ -36,7 +36,7 @@ Você também precisa criar o arquivo `src/config.json` com a seguinte estrutura
 ```
 
 * `connection.database`: O endereço físico do seu banco de dados.
-* `connection.host`: A URL ou IP do seu banco de dados.
+* `connection.host`: A URL ou IP do servidor onde se encontra seu banco de dados.
 * `connection.port`: A porta do firebird no seu servidor.
 * `connection.pageSize`: *Opcional* Default `4096`. O pageSize ideal de acordo com seu banco e servidor.
 * `secret`: A chave secreta que foi utilizada para gerar o token JWT
@@ -48,6 +48,8 @@ Você também precisa criar o arquivo `src/config.json` com a seguinte estrutura
 2. ["*"] permite acesso a partir de qualquer domínio da WEB.
 
 ## Endpoint
+
+O servidor ficará disponivel na porta indicada na variável de ambiente PORT ou na porta 3000 por padrão.
 
 Acessando o recurso principal:
 ```
