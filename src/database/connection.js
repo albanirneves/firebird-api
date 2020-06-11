@@ -70,9 +70,9 @@ async function readResults(results){
             for(let j = 0; j < campos.length; j++) {
                 const campo = campos[j];
 
-                if(typeof record[campo] == 'function') {
-                    const test = await readBlob(record[campo]);
-                    record[campo] = test || null;
+                if(typeof record[campo] == 'function') {//BLOB
+                    const string = await readBlob(record[campo]);
+                    record[campo] = string || null;
                 }
 
                 if(record[campo] && record[campo].buffer) {
@@ -93,14 +93,14 @@ async function readBlob(streaming) {
                 return;
             }
 
-            let test = '';
+            let string = '';
 
             event.on('data', function(chunk) {
-                test += chunk.toString();
+                string += chunk.toString();
             });
 
             event.on('end', function() {
-                resolve(test);
+                resolve(string);
             });
         });
     });
