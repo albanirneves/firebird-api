@@ -4,7 +4,10 @@ const Firebird = require('node-firebird');
 
 const config = require('../config.json');
 
-const { database, host, port, role, pageSize, timeout } = config.connection;
+const { database, host, port } = config.connection;
+const role = null;
+const pageSize = 4096;
+const timeout = 3000;
 
 async function connection() {
     return new Promise((resolve, reject) => {
