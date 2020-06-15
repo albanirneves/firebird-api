@@ -1,5 +1,5 @@
 node_modules
-src/database/dados.fdb
+*.fdb
 src/config.json
 .vscode
 token

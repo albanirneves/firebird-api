@@ -55,7 +55,7 @@ Acessando o recurso principal:
 ```
 POST /query
 Content-Type: application/json
-Authorization: seu_token
+Authorization: Bearer **seu_token**
 
 {
    "sql": "select * from MY_TABLE"
@@ -83,6 +83,16 @@ O retorno será um JSON:
 
 A resposta contém um header X-Total-Count com o total de registros retornados.
 
+# Problemas com charsets
+A conversão dos dados e envio via javascript/firebird às vezes gera problemas relacionados com charset, especialmente se os campos VARCHAR das tabelas estiverem sem Charset ou sem Collate. O retorno é sempre tratado, mas às vezes vocês precisarão realizar alguns workarouds com os sqls.  
+
+Por exemplo:
+
+`select CODIGO, DATA, OBSERVACOES from CALENDARIO where OBSERVACOES like 'Isenção%'`
+
+O sql acima pode não retornar valores devido a acentuação. Nesse caso sempre é recomendado realizar um cast para `varchar(256) character set latin1` no próprio SQL:
+
+`select CODIGO, DATA, OBSERVACOES from CALENDARIO where OBSERVACOES like cast('Isenção%' as varchar(256) character set latin1)`
 
 ## Dependências
 Esta API utiliza o pacote [node-firebird](https://www.npmjs.com/package/node-firebird) na sua versão mais estável (0.8.9). Atualizações para versões posteriores podem não se comportar corretamente.

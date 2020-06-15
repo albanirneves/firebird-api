@@ -76,7 +76,7 @@ async function readResults(results){
                 }
 
                 if(record[campo] && record[campo].buffer) {
-                    record[campo] = record[campo].toString();
+                    record[campo] = record[campo].toString('latin1');
                 }
             }
         }
