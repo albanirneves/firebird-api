@@ -2,4 +2,3 @@ node_modules
 *.fdb
 src/config.json
 .vscode
-token
