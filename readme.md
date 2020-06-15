@@ -90,7 +90,7 @@ Por exemplo:
 
 `select CODIGO, DATA, OBSERVACOES from CALENDARIO where OBSERVACOES like 'Isenção%'`
 
-O sql acima pode não retornar valores devido a acentuação. Nesse caso sempre é recomendado realizar um cast para `varchar(256) character set latin1` no próprio SQL:
+O sql acima pode não retornar valores devido a acentuação. [Veja aqui uma discussão sobre isso](https://github.com/hgourvest/node-firebird/issues/125) Nesse caso sempre é recomendado realizar um cast para `varchar(256) character set latin1` no próprio SQL:
 
 `select CODIGO, DATA, OBSERVACOES from CALENDARIO where OBSERVACOES like cast('Isenção%' as varchar(256) character set latin1)`
 
